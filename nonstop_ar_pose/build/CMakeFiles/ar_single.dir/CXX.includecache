@@ -1,0 +1,12 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/richu/rosbuild_ws/nonstop_ros/nonstop_ar_pose/src/ar_single.cpp
+ar_pose/ar_single.h
+/home/richu/rosbuild_ws/nonstop_ros/nonstop_ar_pose/src/ar_pose/ar_single.h
+

@@ -1,0 +1,14 @@
+<package>
+  <description brief="nonstop_simulation_gazebo">
+
+     nonstop_simulation_gazebo
+
+  </description>
+  <author>Richu</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/nonstop_simulation_gazebo</url>
+
+</package>
+
+

@@ -1,0 +1,19 @@
+<package>
+  <description brief="nonstop_android_cam">
+
+     IPWebcam to ROS Camera
+
+  </description>
+  <author>Richu</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/nonstop_android_cam</url>
+  <depend package="sensor_msgs"/>
+  <depend package="opencv2"/>
+  <depend package="cv_bridge"/>
+  <depend package="roscpp"/>
+  <depend package="std_msgs"/>
+  <depend package="image_transport"/>
+</package>
+
+
