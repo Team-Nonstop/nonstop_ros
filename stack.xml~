@@ -6,7 +6,7 @@
   <license>BSD</license>
   <review status="unreviewed" notes=""/>
   <url>http://ros.org/wiki/nonstop_ros</url>
-
+  <rosdep name="glut"/>
   <depend stack="std_msgs"/>
   <depend stack="roscpp"/>
   <depend stack="cv_bridge"/>
