@@ -2,12 +2,16 @@
 <include file="$(find nonstop_dashboard)/robot.machine" />
  
 
-
+<!--
 <include file="$(find nonstop_turtlebot_bringup)/launch/minimal.launch">
-	<arg name="machine_name" value="c3" />
+	<arg name="machine_name" value="c1" />
 	<arg name="robot_name" value="robot1" />
 </include>
-
+-->
+<include file="$(find nonstop_turtlebot_bringup)/launch/minimal.launch">
+	<arg name="machine_name" value="c2" />
+	<arg name="robot_name" value="robot2" />
+</include>
 
 </launch>
 
