@@ -1,0 +1,11 @@
+<launch>
+<arg name="robot_name"/>
+  <node pkg="zeroconf_avahi" type="zeroconf" name="zeroconf_avahi" ns="zeroconf" machine="$(arg robot_name)">
+    <rosparam file="$(find nonstop_turtlebot_bringup)/param/zeroconf.yaml" command="load"/>
+    <!-- 
+    <rosparam param="services">
+      [ { name: "Turtlebot", type: _ros-master._tcp, domain: local, description: "ros master" } ]
+    </rosparam>
+     -->
+  </node>
+</launch>

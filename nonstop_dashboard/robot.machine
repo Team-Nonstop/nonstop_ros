@@ -1,0 +1,7 @@
+<launch>
+  <machine name="tnmain" address="tnmain" env-loader="/opt/ros/groovy/env.sh" default="true" />
+  <machine name="c1" address="antoine" />
+  <machine name="c2" address="tmrobot" />
+  <machine name="c3" address="richu-ubuntu" />
+</launch>
+

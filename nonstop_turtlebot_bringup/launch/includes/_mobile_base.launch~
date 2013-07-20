@@ -1,0 +1,13 @@
+<!--
+  The mobile platform base.
+  
+  Selector for the base.
+ -->
+<launch>
+  <arg name="base"/>
+  <arg name="robot_name"/>
+  <include file="$(find nonstop_turtlebot_bringup)/launch/includes/$(arg base)/_mobile_base.launch">
+	<arg name="robot_name" value="$(arg robot_name)" />
+  </include>
+</launch>
+

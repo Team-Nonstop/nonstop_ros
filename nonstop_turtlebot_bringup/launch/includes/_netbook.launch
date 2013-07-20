@@ -1,0 +1,11 @@
+<!--
+  Netbook battery monitor
+ -->
+<launch>
+  <arg name="battery"/>
+  <arg name="machine_name"/>
+  <node pkg="linux_hardware" type="laptop_battery.py" name="turtlebot_laptop_battery" machine="$(arg machine_name)">
+        <param name="acpi_path" type="string" value="$(arg battery)" />
+  </node>
+</launch>
+  
