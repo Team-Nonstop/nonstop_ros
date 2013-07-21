@@ -1,6 +1,6 @@
 <launch>
   <!--<machine name="tnmain" address="tnmain" env-loader="/opt/ros/groovy/env.sh" default="true" />-->
-  <machine name="c1" address="antoine" user="antoine" password="xoghks"/>
+  <machine name="c1" address="antoine" user="antoine" password="xoghks" env-loader="$(find nonstop_dashboard)/env/robot1_env.sh" />
   <machine name="c2" address="tmrobot" user="tmrobot" password="shstmxhq"/>
   <machine name="c3" address="richu-ubuntu" user="richu" />
 </launch>
