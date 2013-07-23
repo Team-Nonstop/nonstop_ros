@@ -11,7 +11,7 @@
   <param name="robot_description" command="$(arg urdf_file)" />
 
   <!-- important generally, but specifically utilised by the current app manager -->  
-  <param name="robot/name" value="$(optenv ROBOT turtlebot)"/>
+  <param name="robot/name" value="$(arg machine_name)_$(optenv ROBOT turtlebot)"/>
   <param name="robot/type" value="turtlebot"/>
   
   <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" machine="$(arg machine_name)">

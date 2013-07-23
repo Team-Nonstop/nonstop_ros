@@ -3,7 +3,8 @@
 
 services: 
   - 
-     name: "Turtlebot"
+     name: "NonstopHermes"
      type: _ros-master._tcp 
-     domain: local 
+     port: 11311
+     domain: tnmain 
      description: "ros master"

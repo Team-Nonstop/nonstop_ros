@@ -4,7 +4,7 @@
 <launch>
 <arg name="machine_name"/>
   <node pkg="nodelet" type="nodelet" name="mobile_base_nodelet_manager" args="manager" machine="$(arg machine_name)"/>
-  <node pkg="nodelet" type="nodelet" name="mobile_base" args="load kobuki_node/KobukiNodelet mobile_base_nodelet_manager" machine="$(arg machine_name)">
+  <node pkg="nodelet" type="nodelet" name="mobile_base" args="load kobuki_node/KobukiNodelet mobile_base_nodelet_manager" >
     <rosparam file="$(find kobuki_node)/param/base.yaml" command="load"/>
     <remap from="mobile_base/odom" to="odom"/>
     <!-- Don't do this - force applications to use a velocity mux for redirection  
@@ -31,13 +31,11 @@
   <node pkg="nodelet" type="nodelet" name="cmd_vel_mux" args="load cmd_vel_mux/CmdVelMuxNodelet cmd_vel_mux_manager">
   -->
   <node pkg="nodelet" type="nodelet" name="cmd_vel_mux" args="load cmd_vel_mux/CmdVelMuxNodelet mobile_base_nodelet_manager">
-    <param name="yaml_cfg_file" value="$(find nonstop_turtlebot_bringup)/param/mux.yaml" />
+    <param name="yaml_cfg_file" value="/opt/ros/groovy/stacks/turtlebot/turtlebot_bringup/param/mux.yaml" />
 	<remap from="cmd_vel_mux/commands/velocity" to="mobile_base/commands/velocity"/>
     <!-- <remap from="cmd_vel_mux/output" to="mobile_base/commands/velocity"/> -->
   </node>
   
   <!-- bumper/cliff to pointcloud -->
-  <include file="$(find nonstop_turtlebot_bringup)/launch/includes/kobuki/_bumper2pc.launch">
-	<arg name="machine_name" value="$(arg machine_name)" />
-  </include>
+  <include file="$(find nonstop_turtlebot_bringup)/launch/includes/kobuki/_bumper2pc.launch"/>
 </launch>

@@ -14,9 +14,7 @@
 
 	  
 	  
-	  <include file="$(find nonstop_turtlebot_bringup)/launch/includes/_zeroconf.launch">
-		<arg name="machine_name" value="$(arg machine_name)" />
-	  </include>
+	  <include file="$(find nonstop_turtlebot_bringup)/launch/includes/_zeroconf.launch"/>
 	  <include file="$(find nonstop_turtlebot_bringup)/launch/includes/_robot.launch">
 		<arg name="base" value="$(arg base)" />
 		<arg name="stacks" value="$(arg stacks)" />
@@ -31,8 +29,7 @@
 		<arg name="battery" value="$(arg battery)" />
 		<arg name="machine_name" value="$(arg machine_name)" />
 	  </include>
-	  <include file="$(find nonstop_turtlebot_bringup)/launch/includes/_app_manager.launch">
-		<arg name="machine_name" value="$(arg machine_name)" />
-	  </include>
+	  <include file="$(find nonstop_turtlebot_bringup)/launch/includes/_app_manager.launch"/>
+
   </group>
 </launch>
