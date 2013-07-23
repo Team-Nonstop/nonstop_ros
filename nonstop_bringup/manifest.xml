@@ -1,0 +1,15 @@
+<package>
+  <description brief="nonstop_bringup">
+
+     nonstop_bringup
+
+  </description>
+  <author>richu</author>
+  <license>BSD</license>
+  <review status="unreviewed" notes=""/>
+  <url>http://ros.org/wiki/nonstop_bringup</url>
+  <depend package="nonstop_turtlebot_bringup"/>
+
+</package>
+
+

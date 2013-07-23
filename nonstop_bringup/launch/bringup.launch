@@ -1,5 +1,5 @@
 <launch>
-<include file="$(find nonstop_dashboard)/robot.machine" />
+<include file="$(find nonstop_bringup)/machine/nonstop.machine" />
  
 
 <include file="$(find nonstop_turtlebot_bringup)/launch/minimal.launch">
