@@ -1,6 +1,8 @@
 <launch>
 <include file="$(find nonstop_bringup)/machine/nonstop.machine" />
  
+  <node pkg="tf" type="static_transform_publisher" name="base_ref_1" args="1 0 0 0 0 0 /odom /robot1/odom 100" />
+  <node pkg="tf" type="static_transform_publisher" name="base_ref_2" args="-1 0 0 0 0 0 /odom /robot2/odom 100" />
 
 <include file="$(find nonstop_turtlebot_bringup)/launch/minimal.launch">
 	<arg name="machine_name" value="c1" />
@@ -12,5 +14,26 @@
 	<arg name="robot_name" value="robot2" />
 </include>
 
+  <!-- turtlebot_teleop_key already has its own built in velocity smoother -->
+  <node pkg="turtlebot_interactive_markers" type="turtlebot_marker_server" name="turtlebot_marker_server" ns="robot1">
+    <remap from="cmd_vel" to="cmd_vel_mux/input/teleop_raw"/>
+  </node>
+  <node pkg="turtlebot_interactive_markers" type="turtlebot_marker_server" name="turtlebot_marker_server" ns="robot2">
+    <remap from="cmd_vel" to="cmd_vel_mux/input/teleop_raw"/>
+  </node>
+
+  <!--  smooths inputs from cmd_vel_mux/input/teleop_raw to cmd_vel_mux/input/teleop -->
+  <node pkg="nodelet" type="nodelet" name="teleop_velocity_smoother" args="load yocs_velocity_smoother/VelocitySmootherNodelet mobile_base_nodelet_manager"  ns="robot1">
+    <rosparam file="$(find turtlebot_bringup)/param/defaults/smoother.yaml" command="load"/>
+    <remap from="teleop_velocity_smoother/raw_cmd_vel" to="cmd_vel_mux/input/teleop_raw"/>
+    <remap from="teleop_velocity_smoother/odometry" to="odom"/> <!-- Todo : moved to odom_combined -->
+    <remap from="teleop_velocity_smoother/smooth_cmd_vel" to="cmd_vel_mux/input/teleop"/>
+  </node>
+  <node pkg="nodelet" type="nodelet" name="teleop_velocity_smoother" args="load yocs_velocity_smoother/VelocitySmootherNodelet mobile_base_nodelet_manager" ns="robot2">
+    <rosparam file="$(find turtlebot_bringup)/param/defaults/smoother.yaml" command="load"/>
+    <remap from="teleop_velocity_smoother/raw_cmd_vel" to="cmd_vel_mux/input/teleop_raw"/>
+    <remap from="teleop_velocity_smoother/odometry" to="odom"/> <!-- Todo : moved to odom_combined -->
+    <remap from="teleop_velocity_smoother/smooth_cmd_vel" to="cmd_vel_mux/input/teleop"/>
+  </node>
 </launch>
 
